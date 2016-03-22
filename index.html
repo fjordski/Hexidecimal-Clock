@@ -1,0 +1,65 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>The HTML5 Herald</title>
+	<meta name="description" content="The HTML5 Herald">
+	<meta name="author" content="SitePoint">
+
+	<style>
+		@import url(https://fonts.googleapis.com/css?family=VT323);
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		html,
+		body {
+			height: 100%;
+		}
+		
+		#hexidecimal {
+			color: white;
+			font: 64px/64px VT323;
+			height: 64px;
+			position: relative;
+			top: 50%;
+			margin-top: -32px;
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="hexidecimal"></div>
+	<script>
+		var d, h, m, s, color;
+
+		function displayTime() {
+			d = new Date();
+			h = d.getHours();
+			m = d.getMinutes();
+			s = d.getSeconds();
+
+
+			if (h <= 9) h = '0' + h;
+			if (m <= 9) m = '0' + m;
+			if (s <= 9) s = '0' + s;
+
+			color = "#" + h + m + s;
+
+			document.body.style.background = color;
+
+			document.getElementById("hexidecimal").innerHTML = color;
+
+			setTimeout(displayTime, 1000);
+		}
+
+		displayTime();
+	</script>
+</body>
+
+</html>
